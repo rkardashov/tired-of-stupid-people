@@ -1,6 +1,7 @@
 package 
 {
 	import flash.events.TimerEvent;
+	import flash.geom.Point;
 	import flash.geom.Rectangle;
 	import flash.media.SoundChannel;
 	import flash.ui.Keyboard;
@@ -31,26 +32,26 @@ package
 		
 		private var score: int;
 		*/
-		static public const TRASH_CAN_X:Number = 400;
-		static public const FLOOR_Y: Number = 320;
-		static public const DOOR_X: Number = 240;
+		static public const TRASH_CAN_X:Number = 400;// 80;// 400 -640/2
+		static public const FLOOR_Y: Number = 320;// 80;// 320 -480/2
+		static public const DOOR_X: Number = 240;// -80;// 240 -640/2
 		
-		static private const MAX_TRASH: int = 10;// 3;
+		static private const MAX_TRASH: int = 0;// 5;// 3;
 		static private const DUDE_INTERVAL:Number = 10;// 3;
 		static private const DUDE_CLASSES: Array = [GoodBoy, Fool, RudeBoy];
 		//static private const DUDE_CLASSES: Array = [GoodBoy];
 		
 		private var gameOver: Boolean;
-		private var layerObjects:Sprite;
-		private var door:MovieClip;
-		private var nextDudeTime:Number;
-		private var dt:Number;
-		private var layerUI:Sprite;
-		private var pauseScreen:Image;
-		private var layerTrash:Sprite;
-		private var gameOverView:GameOverView;
+		private var layerObjects: Sprite;
+		private var door: MovieClip;
+		private var nextDudeTime: Number;
+		private var dt: Number;
+		private var layerUI: Sprite;
+		private var pauseScreen: Image;
+		private var layerTrash: Sprite;
+		private var gameOverView: GameOverView;
 		private var music: SoundController;
-		private var musicMuffle:SoundController;
+		private var musicMuffle: SoundController;
 		private var doggy: Doggy;
 		
 		public function Game(): void 
@@ -60,19 +61,25 @@ package
 		
 		private function onAssetsLoaded():void 
 		{
+			//alignPivot();
+			x = stage.stageWidth / 2 - 320;
+			y = stage.stageHeight / 2 - 240;
 			//Assets.playSound("music_bg");// Assets.SOUND_SUPERMARKET);
 			music = new SoundController("music_bg");
 			musicMuffle = new SoundController("music_bg_muffle");
-			
 			musicMuffle.volume = 0;
+			
+			music.volume = 0;
 			
 			//Assets.getSound("music_bg").play();// Assets.SOUND_SUPERMARKET);
 			
-			var bg: Image
+			var bg: Image;
 			addChild(bg = Assets.getImage("bg"));
-			bg.alignPivot();
-			bg.x = stage.stageWidth / 2;
-			bg.y = stage.stageHeight / 2;
+			bg.alignPivot(HAlign.LEFT, VAlign.CENTER);
+			bg.x = globalToLocal(new Point()).x;
+			bg.y = globalToLocal(new Point(0, stage.stageHeight / 2)).y;
+			//bg.x = stage.stageWidth / 2;
+			//bg.y = stage.stageHeight / 2;
 			//clipRect = new Rectangle(0, 0, 640, 480);
 			
 			addChild(door = Assets.getAnim("door_"));
@@ -82,16 +89,25 @@ package
 			door.currentFrame = 0;
 			
 			addChild(layerObjects = new Sprite());
+			//layerObjects.alignPivot();
 			layerObjects.addChild(new TrashCan(TRASH_CAN_X));
 			
 			addChild(layerTrash = new Sprite());
+			//layerTrash.alignPivot();
 			
-			addChild(doggy = new Doggy());
+			layerObjects.addChild(doggy = new Doggy());
+			//addChild(doggy = new Doggy());
 			
 			addChild(pauseScreen = Assets.getImage("pause_screen"));
+			//pauseScreen.alignPivot();
+			pauseScreen.x = globalToLocal(new Point()).x;
+			pauseScreen.y = globalToLocal(new Point()).y;
+			pauseScreen.width = stage.stageWidth;
+			pauseScreen.height = stage.stageHeight;
 			pauseScreen.visible = false;
 			
 			addChild(layerUI = new Sprite());
+			//layerUI.alignPivot();
 			layerUI.addChild(new PauseButton());
 			layerUI.addChild(new TimeCounter());
 			
@@ -102,8 +118,13 @@ package
 			addChild(new TitleScreen());
 			
 			var vignette: Image = Assets.getImage("vignette");
+			//vignette.alignPivot();
 			vignette.alpha = 0.8;
 			vignette.touchable = false;
+			vignette.x = globalToLocal(new Point()).x;
+			vignette.y = globalToLocal(new Point()).y;
+			vignette.width = stage.stageWidth;
+			vignette.height = stage.stageHeight;
 			addChild(vignette);
 			
 			GameEvents.subscribe(GameEvents.GAME_START, onGameStart);
@@ -115,7 +136,7 @@ package
 			GameEvents.subscribe(GameEvents.LITTER, onLitter);
 			GameEvents.subscribe(GameEvents.TRASH_PICK, onTrashPick);
 			
-			//GameEvents.dispatch(GameEvents.GAME_START);
+			//alignPivot();
 		}
 		
 		private function onGameStart():void 

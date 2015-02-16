@@ -116,6 +116,7 @@ package
 		private function onRestart(e:starling.events.Event):void 
 		{
 			removeEventListener(starling.events.Event.TRIGGERED, onRestart);
+			GameEvents.dispatch(GameEvents.GAME_START);
 			
 			timer.stop();
 			Assets.playSound("car_depart");
@@ -127,7 +128,7 @@ package
 				{
 					visible = false;
 					x = 320 + 640;
-					GameEvents.dispatch(GameEvents.GAME_START);
+					//GameEvents.dispatch(GameEvents.GAME_START);
 				}
 			});
 		}

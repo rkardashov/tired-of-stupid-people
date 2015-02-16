@@ -3,6 +3,7 @@ package
 	import flash.utils.setTimeout;
 	import starling.core.Starling;
 	import starling.display.DisplayObject;
+	import starling.display.Image;
 	import starling.display.MovieClip;
 	import starling.display.Sprite;
 	import starling.events.EnterFrameEvent;
@@ -24,20 +25,27 @@ package
 		public function Doggy() 
 		{
 			super();
+			
+			var shadow: Image;
+			addChild(shadow = Assets.getImage("doggy_shadow"));
+			shadow.x = 30;
+			shadow.y = 70;
+			
 			addChild(animBark = Assets.getAnim("doggy_bark_"));
 			animBark.fps = 30;
 			Starling.current.juggler.add(animBark);
-			//animBark.visible = false;
 			animBark.play();
+			
 			addChild(animJump = Assets.getAnim("doggy_jump_"));
 			Starling.current.juggler.add(animJump);
 			animJump.visible = false;
 			animJump.play();
 			animJump.fps = 30;
+			
 			alignPivot(HAlign.CENTER, VAlign.BOTTOM);
-			x = Game.TRASH_CAN_X + 100;
-			y = Game.FLOOR_Y + 65;
-			scaleX = -1;
+			x = Game.DOOR_X - 150;// Game.TRASH_CAN_X + 100;
+			y = Game.FLOOR_Y;// + 65;
+			//scaleX = -1;
 			//changeState();
 			touchable = false;
 			GameEvents.subscribe(GameEvents.PAUSE, onPause);

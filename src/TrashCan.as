@@ -17,8 +17,9 @@ package
 		public function TrashCan(xPos: Number) 
 		{
 			//addChild(new Quad(45, 75, 0x146312));
-			addChild(Assets.getImage("trashcan"));
+			addChild(Assets.getImage("trashcan_withshadow"));
 			addChild(layerTrash = new Sprite());
+			addChild(Assets.getImage("trashcan"));
 			alignPivot(HAlign.CENTER, VAlign.BOTTOM);
 			x = xPos;
 			y = Game.FLOOR_Y - 5;
