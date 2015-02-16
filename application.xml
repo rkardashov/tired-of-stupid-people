@@ -9,7 +9,13 @@
     <manifestAdditions><![CDATA[<manifest android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="8" />
 	<uses-permission android:name="android.permission.INTERNET" />
-	<uses-feature android:required="true" android:name="android.hardware.touchscreen.multitouch" />
+	<uses-feature android:required="true" android:name="android.hardware.touchscreen.multitouch"/>
+	<supports-screens
+		android:smallScreens="false"
+		android:normalScreens="false"
+		android:largeScreens="true"
+		android:xlargeScreens="false"
+		android:anyDensity="false"/>
 </manifest>]]></manifestAdditions>
   </android>
   <iPhone>
@@ -38,6 +44,11 @@
     <systemChrome>standard</systemChrome>
     <resizable>false</resizable>
     <aspectRatio>landscape</aspectRatio>
+    <requestedDisplayResolution>standard</requestedDisplayResolution>
+    <width>800</width>
+    <height>480</height>
+    <minSize>800 480</minSize>
+    <maxSize>800 480</maxSize>
   </initialWindow>
   <icon>
     <image48x48>icons/icon_48.png</image48x48>

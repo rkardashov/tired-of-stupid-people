@@ -36,7 +36,7 @@ package
 		static public const FLOOR_Y: Number = 320;// 80;// 320 -480/2
 		static public const DOOR_X: Number = 240;// -80;// 240 -640/2
 		
-		static private const MAX_TRASH: int = 0;// 5;// 3;
+		static private const MAX_TRASH: int = 5;// 3;
 		static private const DUDE_INTERVAL:Number = 10;// 3;
 		static private const DUDE_CLASSES: Array = [GoodBoy, Fool, RudeBoy];
 		//static private const DUDE_CLASSES: Array = [GoodBoy];
@@ -69,7 +69,7 @@ package
 			musicMuffle = new SoundController("music_bg_muffle");
 			musicMuffle.volume = 0;
 			
-			music.volume = 0;
+			//music.volume = 0;
 			
 			//Assets.getSound("music_bg").play();// Assets.SOUND_SUPERMARKET);
 			
