@@ -12,7 +12,7 @@ package
 			//trace("hey dumbass!");
 		}
 		
-		override protected function prepare(): void 
+		override public function prepare(): void 
 		{
 			var moveRight: Boolean = Math.random() > 0.5;
 			var tgtX: Number;
@@ -26,6 +26,8 @@ package
 			
 			tgtX = moveRight ? (-200) : (640 + 200);
 			actions.push(new Action(Action.MOVE, tgtX));
+			
+			super.prepare();
 		}
 		
 		override protected function onTouch():void 
@@ -44,6 +46,8 @@ package
 		override protected function onDrag(): void 
 		{
 			y = Math.min(y, Game.FLOOR_Y - 20);
+			shadow.x = x;
+			//shadow.y = Game.FLOOR_Y - 20;
 		}
 		
 		override protected function onDrop():void 

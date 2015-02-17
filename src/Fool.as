@@ -12,7 +12,7 @@ package
 			//trace("oh hi");
 		}
 		
-		override protected function prepare(): void 
+		override public function prepare(): void 
 		{
 			var moveRight: Boolean = Math.random() > 0.5;
 			var tgtX: Number;
@@ -27,6 +27,8 @@ package
 			
 			tgtX = moveRight ? (-200) : (640 + 200);
 			actions.push(new Action(Action.MOVE, tgtX));
+			
+			super.prepare();
 		}
 		
 		override protected function onRelease():void 

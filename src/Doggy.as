@@ -44,7 +44,7 @@ package
 			
 			alignPivot(HAlign.CENTER, VAlign.BOTTOM);
 			x = Game.DOOR_X - 150;// Game.TRASH_CAN_X + 100;
-			y = Game.FLOOR_Y;// + 65;
+			y = Game.FLOOR_Y - 3;// + 65;
 			//scaleX = -1;
 			//changeState();
 			touchable = false;

@@ -18,6 +18,7 @@ package
 		static public const LITTER: String = "litter";
 		static public const TRASH_TO_CAN: String = "trash";
 		static public const TRASH_PICK: String = "trash_pick";
+		static public const DUDE_NEW_SHADOW: String = "dude_new_shadow";
 		
 		static public const STATS_TOTAL_TIME: String = "totalTime";
 		static public const STATS_PLUS_GOOD_BOY: String = "statsPlusGoodBoy";

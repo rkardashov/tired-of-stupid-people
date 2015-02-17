@@ -53,14 +53,17 @@ package
 		private var music: SoundController;
 		private var musicMuffle: SoundController;
 		private var doggy: Doggy;
+		private var layerShadows: Sprite;
 		
 		public function Game(): void 
 		{
 			Assets.init(onAssetsLoaded);
+			// TODO: stage.listen(Event.ACTIVATE / Event.DEACTIVATE)
 		}
 		
 		private function onAssetsLoaded():void 
 		{
+			DudePool.init();
 			//alignPivot();
 			x = stage.stageWidth / 2 - 320;
 			y = stage.stageHeight / 2 - 240;
@@ -88,15 +91,14 @@ package
 			door.y = FLOOR_Y;
 			door.currentFrame = 0;
 			
+			addChild(layerShadows = new Sprite());
 			addChild(layerObjects = new Sprite());
 			//layerObjects.alignPivot();
 			layerObjects.addChild(new TrashCan(TRASH_CAN_X));
+			layerObjects.addChild(doggy = new Doggy());
 			
 			addChild(layerTrash = new Sprite());
 			//layerTrash.alignPivot();
-			
-			layerObjects.addChild(doggy = new Doggy());
-			//addChild(doggy = new Doggy());
 			
 			addChild(pauseScreen = Assets.getImage("pause_screen"));
 			//pauseScreen.alignPivot();
@@ -133,10 +135,16 @@ package
 			GameEvents.subscribe(GameEvents.PAUSE, onPause);
 			GameEvents.subscribe(GameEvents.RESUME, onResume);
 			
+			GameEvents.subscribe(GameEvents.DUDE_NEW_SHADOW, onDudeNewShadow);
 			GameEvents.subscribe(GameEvents.LITTER, onLitter);
 			GameEvents.subscribe(GameEvents.TRASH_PICK, onTrashPick);
 			
 			//alignPivot();
+		}
+		
+		private function onDudeNewShadow(e: Event, shadow: Image): void 
+		{
+			layerShadows.addChild(shadow);
 		}
 		
 		private function onGameStart():void 
@@ -176,7 +184,8 @@ package
 				//nextDudeTime = DUDE_INTERVAL_MIN + Math.random() * 2;
 				nextDudeTime = DUDE_INTERVAL * (0.8 + Math.random() * 0.4);
 				var dudeClass: Class = Utils.pickRnd(DUDE_CLASSES) as Class;
-				layerObjects.addChild(new dudeClass());
+				//layerObjects.addChild(new dudeClass());
+				layerObjects.addChild(DudePool.get(dudeClass));
 				door.currentFrame = 1;
 				setTimeout(function(): void
 					{

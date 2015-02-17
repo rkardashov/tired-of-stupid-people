@@ -13,7 +13,7 @@ package
 			GameEvents.dispatch(GameEvents.STATS_PLUS_GOOD_BOY);
 		}
 		
-		override protected function prepare(): void 
+		override public function prepare(): void 
 		{
 			actions.push(new Action(
 				Action.MOVE, Game.TRASH_CAN_X + 50));
@@ -26,7 +26,9 @@ package
 					Action.MOVE, 640 + 200))
 			else
 				actions.push(new Action(
-					Action.MOVE,-100));
+					Action.MOVE, -100));
+			
+			super.prepare();
 		}
 	}
 }
