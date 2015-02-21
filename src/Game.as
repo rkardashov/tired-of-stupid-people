@@ -22,6 +22,10 @@ package
 	import starling.utils.HAlign;
 	import starling.utils.VAlign;
 	
+	import com.pozirk.ads.admob.AdMob;
+	import com.pozirk.ads.admob.AdParams;
+	import com.pozirk.ads.admob.AdEvent;
+	
 	/**
 	 * ...
 	 * @author rkardashov@gmail.com
@@ -129,6 +133,8 @@ package
 			vignette.height = stage.stageHeight;
 			addChild(vignette);
 			
+			//addChild(new AdDebugLayer());
+			
 			GameEvents.subscribe(GameEvents.GAME_START, onGameStart);
 			GameEvents.subscribe(GameEvents.GAME_OVER, onGameOver);
 			
@@ -140,6 +146,8 @@ package
 			GameEvents.subscribe(GameEvents.TRASH_PICK, onTrashPick);
 			
 			//alignPivot();
+			
+			DebugLog.print("1-2 1-2 this is just a test");
 		}
 		
 		private function onDudeNewShadow(e: Event, shadow: Image): void 

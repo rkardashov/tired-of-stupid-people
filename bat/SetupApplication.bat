@@ -39,7 +39,7 @@ set DIST_PATH=dist
 set DIST_NAME=tosp-mobile
 
 :: Debugging using a custom IP
-set DEBUG_IP=
+set DEBUG_IP=192.168.1.47
 
 
 

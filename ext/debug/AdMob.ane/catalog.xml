@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding ="utf-8"?>
+<swc xmlns="http://www.adobe.com/flash/swccatalog/9">
+  <versions>
+    <swc version="1.2" />
+    <flex version="4.6.0" build="23201" minimumSupportedVersion="3.0.0" />
+  </versions>
+  <features>
+    <feature-script-deps />
+    <feature-files />
+  </features>
+  <libraries>
+    <library path="library.swf">
+      <script name="com/pozirk/ads/admob/AdMob" mod="1398703886411" signatureChecksum="1081845562" >
+        <def id="com.pozirk.ads.admob:AdMob" /> 
+        <dep id="trace" type="e" /> 
+        <dep id="flash.events:StatusEvent" type="e" /> 
+        <dep id="flash.external:ExtensionContext" type="e" /> 
+        <dep id="Error" type="e" /> 
+        <dep id="com.pozirk.ads.admob:AdEvent" type="e" /> 
+        <dep id="flash.events:StatusEvent" type="s" /> 
+        <dep id="flash.external:ExtensionContext" type="s" /> 
+        <dep id="Error" type="s" /> 
+        <dep id="com.pozirk.ads.admob:AdEvent" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.events:EventDispatcher" type="i" /> 
+      </script>
+      <script name="_49c8b96c5dad34a22e61983f793ed3ea866bf7eae9afdc49179ae12212d13c28_flash_display_Sprite" mod="1398703895383" signatureChecksum="1026915193" >
+        <def id="_49c8b96c5dad34a22e61983f793ed3ea866bf7eae9afdc49179ae12212d13c28_flash_display_Sprite" /> 
+        <dep id="flash.system:Security" type="e" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Sprite" type="i" /> 
+      </script>
+      <script name="com/pozirk/ads/admob/AdParams" mod="1397859124641" signatureChecksum="2630133318" >
+        <def id="com.pozirk.ads.admob:AdParams" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="Object" type="i" /> 
+      </script>
+      <script name="com/pozirk/ads/admob/AdEvent" mod="1398011508772" signatureChecksum="2492199151" >
+        <def id="com.pozirk.ads.admob:AdEvent" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.events:Event" type="i" /> 
+      </script>
+      <digests>
+        <digest type="SHA-256" signed="false" value="46e903f614fc39ae168cbd5ed7dd6aa14f1215d40085cfd5722af11a0f18dcae"   />
+      </digests>
+    </library>
+  </libraries>
+  <files>
+  </files>
+</swc>

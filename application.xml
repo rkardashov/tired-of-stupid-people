@@ -7,15 +7,19 @@
   <name>tosp-mobile</name>
   <android>
     <manifestAdditions><![CDATA[<manifest android:installLocation="auto">
-	<uses-sdk android:minSdkVersion="8" />
+	<uses-sdk android:minSdkVersion="9"/>
 	<uses-permission android:name="android.permission.INTERNET" />
-	<uses-feature android:required="true" android:name="android.hardware.touchscreen.multitouch"/>
-	<supports-screens
-		android:smallScreens="false"
-		android:normalScreens="false"
-		android:largeScreens="true"
-		android:xlargeScreens="false"
-		android:anyDensity="false"/>
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-feature android:required="true" android:name="android.hardware.touchscreen.multitouch" />
+	<supports-screens android:smallScreens="false" android:normalScreens="true" android:largeScreens="true" android:xlargeScreens="false" android:anyDensity="false" />
+	<application>
+		<meta-data android:name="com.google.android.gms.version" android:value="4323000" />
+		<!-- should be android:value="@integer/google_play_services_version" -->
+		<activity android:name="com.google.android.gms.ads.AdActivity"
+			android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+			android:theme="@android:style/Theme.Translucent"/>
+	</application>
 </manifest>]]></manifestAdditions>
   </android>
   <iPhone>
@@ -75,4 +79,7 @@
 	Android manifest documentation:
 	http://developer.android.com/guide/topics/manifest/manifest-intro.html
 	-->
+  <extensions>
+    <extensionID>com.pozirk.ads.AdMob</extensionID>
+  </extensions>
 </application>

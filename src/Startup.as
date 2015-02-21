@@ -10,7 +10,7 @@ package
 	public class Startup extends Sprite
 	{
 		private var _starling: Starling;
-
+		
 		public function Startup()
 		{
 			Starling.handleLostContext = true;
