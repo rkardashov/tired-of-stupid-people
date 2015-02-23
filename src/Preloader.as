@@ -88,7 +88,7 @@ package
 			//go to frame two because that's where the classes we need are located
 			this.gotoAndStop(2);
 			
-			//stage.scaleMode = StageScaleMode.NO_SCALE;
+			stage.scaleMode = StageScaleMode.NO_SCALE;
 			
 			var scrW: int = stage.fullScreenWidth;
 			var scrH: int = stage.fullScreenHeight;
