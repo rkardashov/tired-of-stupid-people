@@ -1,9 +1,13 @@
 package
 {
 	import flash.display.MovieClip;
+	import flash.display.StageScaleMode;
 	import flash.events.Event;
 	import flash.events.ProgressEvent;
+	import flash.geom.Rectangle;
 	import flash.utils.getDefinitionByName;
+	import starling.utils.RectangleUtil;
+	import starling.utils.ScaleMode;
 	//keep your imports to a minimum!
 	//avoid classes with embedded assets, like images or sounds.
 
@@ -84,11 +88,35 @@ package
 			//go to frame two because that's where the classes we need are located
 			this.gotoAndStop(2);
 			
+			//stage.scaleMode = StageScaleMode.NO_SCALE;
+			
+			var scrW: int = stage.fullScreenWidth;
+			var scrH: int = stage.fullScreenHeight;
+			var viewPort: Rectangle = new Rectangle(0, 0, 800, 480);
+			viewPort.x = scrW / 2 - 400;
+			viewPort.y = scrH / 2 - 240;
+			//var viewPort: Rectangle = new Rectangle(0, 0, scrW, scrH);
+			/*var viewPort:Rectangle = RectangleUtil.fit(
+				new Rectangle(0, 0, W, H), 
+				new Rectangle(0, 0, stage.fullScreenWidth, stage.fullScreenHeight), 
+				ScaleMode.NO_BORDER);
+			*/
+			/*var viewPort:Rectangle = RectangleUtil.fit(
+				new Rectangle(0, 0, 800, 480), 
+				new Rectangle(0, 0, scrW, scrH), 
+				ScaleMode.NO_BORDER);
+			*/
+			
+			//starling = new Starling(Game, stage, viewPort);
+			
 			//getDefinitionByName() will let us access the classes without importing
 			var RootType:Class = getDefinitionByName("Game") as Class;
 			var StarlingType:Class = getDefinitionByName("starling.core.Starling") as Class;
-			this._starling = new StarlingType(RootType, this.stage);
+			this._starling = new StarlingType(RootType, this.stage, viewPort);
 			//this._starling.showStats = true;
+			this._starling.stage.stageWidth  = 800;
+			this._starling.stage.stageHeight = 480;
+			
 			this._starling.antiAliasing = 0;
 			this._starling.start();
 			

@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <application xmlns="http://ns.adobe.com/air/application/14.0">
   <id>com.kurguru.tosp-mobile</id>
-  <versionNumber>0.2</versionNumber>
+  <versionNumber>0.3</versionNumber>
   <supportedProfiles>mobileDevice</supportedProfiles>
   <filename>tosp-mobile</filename>
-  <name>tosp-mobile</name>
+  <name>Tired of Stupid People</name>
   <android>
     <manifestAdditions><![CDATA[<manifest android:installLocation="auto">
-	<uses-sdk android:minSdkVersion="9"/>
+	<uses-sdk android:minSdkVersion="9" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -16,9 +16,7 @@
 	<application>
 		<meta-data android:name="com.google.android.gms.version" android:value="4323000" />
 		<!-- should be android:value="@integer/google_play_services_version" -->
-		<activity android:name="com.google.android.gms.ads.AdActivity"
-			android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-			android:theme="@android:style/Theme.Translucent"/>
+		<activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:theme="@android:style/Theme.Translucent" />
 	</application>
 </manifest>]]></manifestAdditions>
   </android>
@@ -36,7 +34,7 @@
     <requestedDisplayResolution>high</requestedDisplayResolution>
   </iPhone>
   <initialWindow>
-    <title>tosp-mobile</title>
+    <title>Tired of Stupid People</title>
     <content>tosp-mobile.swf</content>
     <visible>true</visible>
     <fullScreen>true</fullScreen>
@@ -49,9 +47,7 @@
     <resizable>false</resizable>
     <aspectRatio>landscape</aspectRatio>
     <requestedDisplayResolution>standard</requestedDisplayResolution>
-    <width>800</width>
-    <height>480</height>
-    <minSize>800 480</minSize>
+    <minSize>480 320</minSize>
     <maxSize>800 480</maxSize>
   </initialWindow>
   <icon>

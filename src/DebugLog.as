@@ -2,6 +2,7 @@ package
 {
 	import starling.core.Starling;
 	import starling.display.Sprite;
+	import starling.events.Event;
 	import starling.text.TextField;
 	import starling.text.TextFieldAutoSize;
 	/**
@@ -19,6 +20,14 @@ package
 			super();
 			addChild(t = new TextField(200, 100, ""));
 			t.autoSize = TextFieldAutoSize.BOTH_DIRECTIONS;
+			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+		}
+		
+		private function onAddedToStage(e:Event):void 
+		{
+			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+			x = stage.stageWidth / 2;
+			y = stage.stageHeight / 2;
 		}
 		
 		static public function print(str: String): void

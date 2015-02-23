@@ -20,6 +20,7 @@ package
 	import starling.text.TextField;
 	import starling.textures.Texture;
 	import starling.utils.HAlign;
+	import starling.utils.SystemUtil;
 	import starling.utils.VAlign;
 	
 	import com.pozirk.ads.admob.AdMob;
@@ -63,14 +64,35 @@ package
 		{
 			Assets.init(onAssetsLoaded);
 			// TODO: stage.listen(Event.ACTIVATE / Event.DEACTIVATE)
+			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+		}
+		
+		private function onAddedToStage(e:Event):void 
+		{
+			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+			stage.alignPivot();
 		}
 		
 		private function onAssetsLoaded():void 
 		{
 			DudePool.init();
 			//alignPivot();
+			
+			// tablet 1280x720
+			// smartphone 533x320
+			
 			x = stage.stageWidth / 2 - 320;
 			y = stage.stageHeight / 2 - 240;
+			/*if (SystemUtil.isDesktop)
+			{
+				x = stage.stageWidth / 2 - 320;
+				y = stage.stageHeight / 2 - 240;
+			}
+			else
+			{
+				x = stage.width / 2 - 320;
+				y = stage.height / 2 - 240;
+			}*/
 			//Assets.playSound("music_bg");// Assets.SOUND_SUPERMARKET);
 			music = new SoundController("music_bg");
 			musicMuffle = new SoundController("music_bg_muffle");
@@ -147,7 +169,8 @@ package
 			
 			//alignPivot();
 			
-			DebugLog.print("1-2 1-2 this is just a test");
+			DebugLog.print("stage width = " + stage.width + ", height = " + stage.height);
+			DebugLog.print("stage stageWidth = " + stage.stageWidth + ", stageHeight = " + stage.stageHeight);
 		}
 		
 		private function onDudeNewShadow(e: Event, shadow: Image): void 
