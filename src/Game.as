@@ -23,9 +23,10 @@ package
 	import starling.utils.SystemUtil;
 	import starling.utils.VAlign;
 	
-	import com.pozirk.ads.admob.AdMob;
+	/*import com.pozirk.ads.admob.AdMob;
 	import com.pozirk.ads.admob.AdParams;
 	import com.pozirk.ads.admob.AdEvent;
+	*/
 	
 	/**
 	 * ...

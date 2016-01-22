@@ -7,19 +7,19 @@ package
 	 */
 	public class EmbeddedAssets 
 	{
-		[Embed(source = "../assets/atlas_0.png")]
+		[Embed(source = "../assets/textures/atlas_0.png")]
 		static public const atlas_0: Class;
-		[Embed(source = "../assets/atlas_0.xml", mimeType="application/octet-stream")]
+		[Embed(source = "../assets/textures/atlas_0.xml", mimeType="application/octet-stream")]
 		static public const atlas_0_xml: Class;
 		
-		[Embed(source = "../assets/atlas_1.png")]
+		[Embed(source = "../assets/textures/atlas_1.png")]
 		static public const atlas_1: Class;
-		[Embed(source = "../assets/atlas_1.xml", mimeType="application/octet-stream")]
+		[Embed(source = "../assets/textures/atlas_1.xml", mimeType="application/octet-stream")]
 		static public const atlas_1_xml: Class;
 		
-		[Embed(source = "../assets/atlas_2.png")]
+		[Embed(source = "../assets/textures/atlas_2.png")]
 		static public const atlas_2: Class;
-		[Embed(source = "../assets/atlas_2.xml", mimeType="application/octet-stream")]
+		[Embed(source = "../assets/textures/atlas_2.xml", mimeType="application/octet-stream")]
 		static public const atlas_2_xml: Class;
 		
 		/*[Embed(source = "../assets/libgdx atlas/atlas.png")]
