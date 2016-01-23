@@ -4,6 +4,7 @@ obj/
 dist/*
 cert/*
 assets/*
+web/
 
 # Other files and folders
 .settings/

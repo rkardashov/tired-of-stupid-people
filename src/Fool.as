@@ -51,7 +51,7 @@ package
 			if (Math.abs(dx) < 50)
 				sequence.push(new Action(Action.MOVE, trash.x - 52 * sign));
 			sequence.push(new Action(Action.MOVE, trash.x - 50 * sign));
-			sequence.push(new Action(Action.STAY, 1.5, Action.TRASH_PICK));
+			sequence.push(new Action(Action.STAY, 0.75, Action.TRASH_PICK));
 			
 			var nextX: Number = trash.x - 50 * sign;
 			
